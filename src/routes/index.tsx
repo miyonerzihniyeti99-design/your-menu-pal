@@ -60,7 +60,7 @@ function Home() {
             </p>
             <Link
               to="/sorular"
-              className="group mt-8 inline-flex items-center gap-3 rounded-2xl bg-studio-yellow px-7 py-4 font-studio-display text-base text-studio-bg shadow-[0_20px_50px_-15px_var(--studio-yellow)] transition-all hover:-translate-y-0.5"
+              className="group mt-8 inline-flex items-center gap-3 rounded-full bg-studio-yellow px-7 py-4 font-studio-display text-base text-studio-bg shadow-[0_20px_50px_-15px_var(--studio-yellow)] transition-all hover:-translate-y-0.5"
             >
               SORU SETLERİM
               <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -82,7 +82,7 @@ function Home() {
             <button
               onClick={join}
               disabled={code.length < 4}
-              className="mt-4 w-full rounded-2xl bg-studio-blue py-4 font-studio-display text-base text-studio-ink transition hover:brightness-110 disabled:opacity-40"
+              className="mt-4 w-full rounded-full bg-studio-blue py-4 font-studio-display text-base text-studio-ink transition hover:brightness-110 disabled:opacity-40"
             >
               KATIL
             </button>

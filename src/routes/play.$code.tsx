@@ -109,7 +109,7 @@ function JoinForm({ code, onJoined }: { code: string; onJoined: (id: string) => 
       <button
         onClick={handle}
         disabled={loading || name.trim().length < 2}
-        className="mt-4 w-full rounded-2xl bg-foreground px-6 py-4 text-lg font-bold text-background disabled:opacity-50"
+        className="mt-4 w-full rounded-full bg-foreground px-6 py-4 text-lg font-bold text-background disabled:opacity-50"
       >
         {loading ? "KATILIYOR..." : "YARIŞMAYA KATIL"}
       </button>
@@ -146,7 +146,7 @@ function GameView({ code, playerId }: { code: string; playerId: string }) {
         <p className="text-center font-semibold text-foreground">Bağlantı yeniden kuruluyor...</p>
         <button
           onClick={() => void refetch()}
-          className="mt-4 w-full rounded-2xl bg-foreground py-3 font-bold text-background"
+          className="mt-4 w-full rounded-full bg-foreground py-3 font-bold text-background"
         >
           Tekrar dene
         </button>
@@ -193,7 +193,7 @@ function GameView({ code, playerId }: { code: string; playerId: string }) {
             onClick={() => {
               void document.documentElement.requestFullscreen().catch(() => {});
             }}
-            className="mt-5 w-full rounded-2xl border-2 border-border px-6 py-3 text-sm font-bold text-foreground hover:bg-muted"
+            className="mt-5 w-full rounded-full border-2 border-border px-6 py-3 text-sm font-bold text-foreground hover:bg-muted"
           >
             TAM EKRAN YAP
           </button>
@@ -252,7 +252,7 @@ function GameView({ code, playerId }: { code: string; playerId: string }) {
               <button
                 type="submit"
                 disabled={data.resolved || data.me?.isCorrect === true || data.status !== "PLAYING" || !!sending || !typed.trim()}
-                className="rounded-2xl bg-foreground py-4 font-bold text-background disabled:opacity-60"
+                className="rounded-full bg-foreground py-4 font-bold text-background disabled:opacity-60"
               >
                 {sending ? "GÖNDERİLİYOR..." : "GÖNDER"}
               </button>
@@ -279,7 +279,7 @@ function GameView({ code, playerId }: { code: string; playerId: string }) {
                       setSending(null);
                     }
                   }}
-                  className={`flex items-center gap-4 rounded-2xl border-2 px-4 py-4 text-left text-base font-semibold transition-colors disabled:opacity-60 ${
+                  className={`flex items-center gap-4 rounded-full border-2 px-4 py-4 text-left text-base font-semibold transition-colors disabled:opacity-60 ${
                     chosen ? "border-foreground bg-foreground text-background" : "border-border bg-background text-foreground"
                   }`}
                 >

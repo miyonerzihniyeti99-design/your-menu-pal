@@ -210,7 +210,7 @@ function HostScreen() {
                   <div className="absolute right-4 top-4 flex gap-2">
                     <button
                       onClick={toggleFullscreen}
-                      className="rounded-lg border-2 border-border bg-panel px-3.5 py-1.5 text-xs font-bold text-foreground hover:bg-muted"
+                      className="rounded-full border-2 border-border bg-panel px-3.5 py-1.5 text-xs font-bold text-foreground hover:bg-muted"
                     >
                       TAM EKRANDAN ÇIK
                     </button>
@@ -219,7 +219,7 @@ function HostScreen() {
                         void document.exitFullscreen();
                         void navigate({ to: "/" });
                       }}
-                      className="rounded-lg bg-foreground px-3.5 py-1.5 text-xs font-bold text-background"
+                      className="rounded-full bg-foreground px-3.5 py-1.5 text-xs font-bold text-background"
                     >
                       ÇIKIŞ
                     </button>
@@ -309,7 +309,7 @@ function Ctrl({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition-colors disabled:opacity-40 ${
+      className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors disabled:opacity-40 ${
         primary
           ? "bg-foreground text-background"
           : "border-2 border-border bg-panel text-foreground hover:bg-muted"
