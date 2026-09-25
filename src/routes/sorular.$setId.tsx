@@ -321,7 +321,7 @@ function QuestionsPage() {
               aria-label="Soru setlerine dön"
               title="Soru setlerine dön"
               onClick={() => void navigate({ to: "/sorular" })}
-              className="h-11 w-11 shrink-0 rounded-lg border border-studio-line text-studio-muted hover:bg-studio-elevated hover:text-studio-ink"
+              className="h-11 w-11 shrink-0 rounded-full border border-studio-line text-studio-muted hover:bg-studio-elevated hover:text-studio-ink"
             >
               <ArrowLeft />
             </Button>
@@ -347,7 +347,7 @@ function QuestionsPage() {
             <Button
               onClick={() => void startContest()}
               disabled={starting || total === 0}
-              className="hidden h-11 rounded-lg bg-studio-elevated px-4 font-bold text-studio-ink hover:bg-studio-line sm:inline-flex"
+              className="hidden h-11 rounded-full bg-studio-elevated px-4 font-bold text-studio-ink hover:bg-studio-line sm:inline-flex"
             >
               <CirclePlay />
               {starting ? "Hazırlanıyor" : "Seti Sun"}
@@ -355,7 +355,7 @@ function QuestionsPage() {
             <Button
               onClick={() => void save()}
               disabled={saving}
-              className="h-11 rounded-lg bg-studio-yellow px-4 font-bold text-studio-bg shadow-[0_4px_0_var(--studio-blue)] hover:bg-studio-yellow/90 active:translate-y-0.5 active:shadow-none sm:px-6"
+              className="h-11 rounded-full bg-studio-yellow px-4 font-bold text-studio-bg shadow-[0_4px_0_var(--studio-blue)] hover:bg-studio-yellow/90 active:translate-y-0.5 active:shadow-none sm:px-6"
             >
               <Save />
               <span className="hidden sm:inline">{saving ? "Kaydediliyor" : "Kaydet"}</span>
@@ -377,7 +377,7 @@ function QuestionsPage() {
                 aria-label="Yeni soru ekle"
                 title="Yeni soru ekle"
                 onClick={newQuestion}
-                className="h-10 w-10 shrink-0 rounded-lg bg-studio-yellow text-studio-bg hover:bg-studio-yellow/90"
+                className="h-10 w-10 shrink-0 rounded-full bg-studio-yellow text-studio-bg hover:bg-studio-yellow/90"
               >
                 <Plus />
               </Button>
@@ -400,7 +400,7 @@ function QuestionsPage() {
                     key={question.id}
                     variant="ghost"
                     onClick={() => pickQuestion(question.id)}
-                    className={`h-auto min-w-56 justify-start rounded-xl border p-3 text-left lg:min-w-0 ${
+                    className={`h-auto min-w-56 justify-start rounded-full border p-3 text-left lg:min-w-0 ${
                       active
                         ? "border-studio-yellow bg-studio-yellow/10 text-studio-ink"
                         : "border-transparent bg-studio-bg/50 text-studio-muted hover:border-studio-line hover:bg-studio-elevated hover:text-studio-ink"
@@ -423,7 +423,7 @@ function QuestionsPage() {
             <div className="border-t border-studio-line p-3">
               <Button
                 onClick={newQuestion}
-                className={`h-11 w-full rounded-lg font-bold ${draftMode ? "bg-studio-yellow text-studio-bg" : "bg-studio-elevated text-studio-ink hover:bg-studio-line"}`}
+                className={`h-11 w-full rounded-full font-bold ${draftMode ? "bg-studio-yellow text-studio-bg" : "bg-studio-elevated text-studio-ink hover:bg-studio-line"}`}
               >
                 <Plus /> Yeni Soru
               </Button>
@@ -450,7 +450,7 @@ function QuestionsPage() {
                     aria-label="Soruyu kopyala"
                     title="Soruyu kopyala"
                     onClick={() => void duplicate()}
-                    className="h-10 w-10 rounded-lg border border-studio-line text-studio-muted hover:bg-studio-elevated hover:text-studio-ink"
+                    className="h-10 w-10 rounded-full border border-studio-line text-studio-muted hover:bg-studio-elevated hover:text-studio-ink"
                   >
                     <Copy />
                   </Button>
@@ -460,7 +460,7 @@ function QuestionsPage() {
                     aria-label="Soruyu sil"
                     title="Soruyu sil"
                     onClick={() => void del()}
-                    className="h-10 w-10 rounded-lg border border-studio-line text-studio-danger hover:bg-studio-danger/10 hover:text-studio-danger"
+                    className="h-10 w-10 rounded-full border border-studio-line text-studio-danger hover:bg-studio-danger/10 hover:text-studio-danger"
                   >
                     <Trash2 />
                   </Button>
@@ -503,7 +503,7 @@ function QuestionsPage() {
                         return { ...current, question_type: t.id, option_a: "", option_b: "", correct_answer: "" };
                       })
                     }
-                    className={`h-10 rounded-lg px-4 font-bold ${active ? "bg-studio-yellow text-studio-bg hover:bg-studio-yellow/90" : "border border-studio-line bg-transparent text-studio-muted hover:bg-studio-elevated hover:text-studio-ink"}`}
+                    className={`h-10 rounded-full px-4 font-bold ${active ? "bg-studio-yellow text-studio-bg hover:bg-studio-yellow/90" : "border border-studio-line bg-transparent text-studio-muted hover:bg-studio-elevated hover:text-studio-ink"}`}
                   >
                     {t.label}
                   </Button>
@@ -566,7 +566,7 @@ function QuestionsPage() {
                       type="button"
                       variant="ghost"
                       onClick={() => setForm((current) => ({ ...current, extra_answers: [...(current.extra_answers ?? []), ""] }))}
-                      className="h-10 w-full rounded-xl border border-dashed border-studio-line text-sm font-bold text-studio-muted hover:border-studio-yellow hover:bg-studio-yellow/10 hover:text-studio-yellow"
+                      className="h-10 w-full rounded-full border border-dashed border-studio-line text-sm font-bold text-studio-muted hover:border-studio-yellow hover:bg-studio-yellow/10 hover:text-studio-yellow"
                     >
                       <Plus /> Alternatif cevap ekle
                     </Button>
@@ -585,7 +585,7 @@ function QuestionsPage() {
                       key={letter}
                       type="button"
                       onClick={() => set("correct_answer", letter)}
-                      className={`h-16 rounded-xl border text-lg font-bold ${correct ? "border-studio-yellow bg-studio-yellow text-studio-bg hover:bg-studio-yellow" : "border-studio-line bg-studio-elevated/60 text-studio-ink hover:bg-studio-line"}`}
+                      className={`h-16 rounded-full border text-lg font-bold ${correct ? "border-studio-yellow bg-studio-yellow text-studio-bg hover:bg-studio-yellow" : "border-studio-line bg-studio-elevated/60 text-studio-ink hover:bg-studio-line"}`}
                     >
                       {correct && <Check />} {letter === "A" ? "Doğru" : "Yanlış"}
                     </Button>
@@ -648,10 +648,10 @@ function QuestionsPage() {
               <div className="flex gap-2 sm:hidden">
                 {!draftMode && selectedId && (
                   <>
-                    <Button onClick={() => void duplicate()} className="h-11 flex-1 rounded-lg bg-studio-elevated text-studio-ink hover:bg-studio-line">
+                    <Button onClick={() => void duplicate()} className="h-11 flex-1 rounded-full bg-studio-elevated text-studio-ink hover:bg-studio-line">
                       <Copy /> Kopyala
                     </Button>
-                    <Button onClick={() => void del()} className="h-11 flex-1 rounded-lg bg-studio-danger/10 text-studio-danger hover:bg-studio-danger/20">
+                    <Button onClick={() => void del()} className="h-11 flex-1 rounded-full bg-studio-danger/10 text-studio-danger hover:bg-studio-danger/20">
                       <Trash2 /> Sil
                     </Button>
                   </>
@@ -660,7 +660,7 @@ function QuestionsPage() {
               <Button
                 onClick={() => void startContest()}
                 disabled={starting || total === 0}
-                className="h-12 rounded-lg bg-studio-elevated px-5 font-bold text-studio-ink hover:bg-studio-line sm:hidden"
+                className="h-12 rounded-full bg-studio-elevated px-5 font-bold text-studio-ink hover:bg-studio-line sm:hidden"
               >
                 <CirclePlay /> {starting ? "Hazırlanıyor" : "Seti Sun"}
               </Button>

@@ -78,7 +78,7 @@ function SetsPage() {
           </div>
           <Link
             to="/"
-            className="rounded-xl border border-studio-line bg-studio-surface/70 px-4 py-2.5 text-sm font-semibold text-studio-ink backdrop-blur transition hover:bg-studio-elevated"
+            className="rounded-full border border-studio-line bg-studio-surface/70 px-4 py-2.5 text-sm font-semibold text-studio-ink backdrop-blur transition hover:bg-studio-elevated"
           >
             ← Ana sayfa
           </Link>
@@ -99,7 +99,7 @@ function SetsPage() {
             <button
               onClick={newSet}
               disabled={!title.trim() || busy === "new"}
-              className="rounded-2xl bg-studio-yellow px-6 py-3.5 font-studio-display text-sm text-studio-bg transition hover:-translate-y-0.5 disabled:opacity-40 disabled:hover:translate-y-0"
+              className="rounded-full bg-studio-yellow px-6 py-3.5 font-studio-display text-sm text-studio-bg transition hover:-translate-y-0.5 disabled:opacity-40 disabled:hover:translate-y-0"
             >
               + Oluştur ve soru ekle
             </button>
@@ -139,7 +139,7 @@ function SetsPage() {
                       setError(e instanceof Error ? e.message : "Silinemedi");
                     }
                   }}
-                  className="rounded-lg px-2.5 py-1 text-xs font-semibold text-studio-muted transition hover:bg-studio-danger/15 hover:text-studio-danger"
+                  className="rounded-full px-2.5 py-1 text-xs font-semibold text-studio-muted transition hover:bg-studio-danger/15 hover:text-studio-danger"
                 >
                   Sil
                 </button>
@@ -152,14 +152,14 @@ function SetsPage() {
                 <button
                   onClick={() => present(s.id)}
                   disabled={s.questionCount === 0 || busy === s.id}
-                  className="flex-1 rounded-xl bg-studio-yellow px-4 py-2.5 font-studio-display text-sm text-studio-bg transition hover:brightness-105 disabled:opacity-40"
+                  className="flex-1 rounded-full bg-studio-yellow px-4 py-2.5 font-studio-display text-sm text-studio-bg transition hover:brightness-105 disabled:opacity-40"
                 >
                   {busy === s.id ? "Hazırlanıyor..." : "▶ Sun"}
                 </button>
                 <Link
                   to="/sorular/$setId"
                   params={{ setId: s.id }}
-                  className="flex-1 rounded-xl border border-studio-line bg-studio-elevated px-4 py-2.5 text-center text-sm font-semibold text-studio-ink transition hover:border-studio-blue"
+                  className="flex-1 rounded-full border border-studio-line bg-studio-elevated px-4 py-2.5 text-center text-sm font-semibold text-studio-ink transition hover:border-studio-blue"
                 >
                   Düzenle
                 </Link>
