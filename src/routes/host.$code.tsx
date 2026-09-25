@@ -9,6 +9,7 @@ import { TugOfWarArena } from "@/components/game/TugOfWarArena";
 import { useGameState } from "@/hooks/useGameState";
 import { useStartCountdown } from "@/components/game/StartCountdown";
 import { WinnerBanner } from "@/components/game/WinnerBanner";
+import { Button } from "@/components/ui/button";
 import { controlRoom } from "@/lib/game.functions";
 
 export const Route = createFileRoute("/host/$code")({
@@ -122,66 +123,75 @@ function HostScreen() {
   const waiting = data.status === "WAITING" || data.status === "READY";
 
   return (
-    <main className="min-h-screen bg-background px-4 py-3 sm:px-8">
-      <div className="mx-auto w-full max-w-[1400px]">
-        <div className="rounded-[var(--radius)] bg-panel p-4 shadow-[var(--shadow-panel)] sm:p-6">
+    <main className={waiting ? "min-h-dvh bg-background" : "min-h-screen bg-background px-4 py-3 sm:px-8"}>
+      <div className={waiting ? "w-full" : "mx-auto w-full max-w-[1400px]"}>
+        <div className={waiting ? "min-h-dvh bg-panel" : "rounded-[var(--radius)] bg-panel p-4 shadow-[var(--shadow-panel)] sm:p-6"}>
           <div
             ref={arenaRef}
-            className={isFullscreen ? "relative flex h-full flex-col justify-center bg-panel" : ""}
+            className={isFullscreen ? "relative flex min-h-dvh flex-col justify-center bg-panel" : ""}
           >
             {countdown}
             {waiting && !lobbyOpen ? (
-            <section className="flex flex-col items-center py-12 text-center">
-              <p className="text-xs font-semibold tracking-[0.35em] text-muted-foreground">
+            <section className="flex min-h-dvh w-full flex-col items-center justify-evenly gap-4 px-5 py-8 text-center sm:px-10">
+              <div className="flex flex-col items-center">
+              <p className="text-xs font-semibold tracking-widest text-muted-foreground">
                 2. ADIM — YARIŞMA
               </p>
-              <h1 className="mt-3 text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl">
+              <h1 className="mt-4 text-4xl font-extrabold text-foreground sm:text-6xl lg:text-8xl">
                 HALAT YARIŞI
               </h1>
-              <p className="mt-4 max-w-xl text-sm font-semibold text-muted-foreground sm:text-base">
+              <p className="mt-5 max-w-2xl text-sm font-semibold text-muted-foreground sm:text-lg">
                 Sorular hazır. "YARIŞMAYI BAŞLAT" dediğinizde QR kod ve oda kodu ekrana gelir,
                 öğrenciler takımlara katılır.
               </p>
-              <button
+              </div>
+              <div className="flex w-full flex-col items-center">
+              <Button
                 onClick={() => setLobbyOpen(true)}
-                className="mt-10 rounded-2xl bg-foreground px-10 py-5 text-lg font-bold tracking-wide text-background transition-transform hover:scale-[1.01]"
+                className="min-h-14 w-full max-w-sm bg-foreground px-6 text-base font-bold text-background hover:bg-foreground/90 sm:min-h-16 sm:text-lg"
               >
                 YARIŞMAYI BAŞLAT
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="outline"
                 onClick={() => void navigate({ to: "/sorular" })}
-                className="mt-3 rounded-2xl border-2 border-border px-8 py-3 text-sm font-bold text-foreground hover:bg-muted"
+                className="mt-3 min-h-11 w-full max-w-sm border-2 border-border bg-panel text-sm font-bold text-foreground hover:bg-muted"
               >
                 SORULARA DÖN
-              </button>
+              </Button>
+              </div>
             </section>
           ) : waiting ? (
-            <section className="flex flex-col items-center py-2 text-center">
-              <p className="text-xs font-semibold tracking-[0.35em] text-muted-foreground">
+            <section className="flex min-h-dvh w-full flex-col items-center justify-between gap-4 px-4 py-6 text-center sm:px-10 sm:py-10">
+              <div className="flex w-full flex-col items-center">
+              <p className="text-xs font-semibold tracking-widest text-muted-foreground">
                 ODA KODU
               </p>
-              <h1 className="mt-1 text-4xl font-extrabold tracking-[0.2em] text-foreground sm:text-5xl">
+              <h1 className="mt-1 text-5xl font-extrabold tracking-widest text-foreground sm:text-7xl lg:text-8xl">
                 {code}
               </h1>
-              <div className="mt-3 rounded-2xl border-4 border-foreground p-2 text-foreground">
-                <QRCode value={joinUrl} size={140} bgColor="transparent" fgColor="currentColor" />
+              <div className="mt-4 w-[clamp(112px,22vh,240px)] border-4 border-foreground p-2 text-foreground sm:mt-6">
+                <QRCode value={joinUrl} size={240} bgColor="transparent" fgColor="currentColor" className="h-auto w-full" />
               </div>
-              <p className="mt-2 text-sm font-bold tracking-[0.2em] text-foreground sm:text-base">
+              <p className="mt-3 text-xs font-bold tracking-wider text-foreground sm:text-base">
                 TELEFONUNUZLA QR KODU OKUTUN
               </p>
-              <div className="mt-3 grid w-full max-w-2xl gap-3 sm:grid-cols-2">
+              </div>
+              <div className="flex w-full flex-col items-center">
+              <div className="grid w-full max-w-5xl grid-cols-2 gap-2 sm:gap-5">
                 <TeamSlot team={1} name={team1?.name} connected={team1?.connected} />
                 <TeamSlot team={2} name={team2?.name} connected={team2?.connected} />
               </div>
               {data.players.length === 2 && (
                 <p className="mt-3 text-xl font-extrabold text-foreground">İKİ OYUNCU HAZIR!</p>
               )}
-              <button
+              <Button
                 onClick={() => startWithFullscreen("start")}
-                className="mt-3 rounded-2xl bg-foreground px-10 py-4 text-lg font-bold tracking-wide text-background transition-transform hover:scale-[1.01]"
+                className="mt-5 min-h-12 w-full max-w-md bg-foreground px-3 text-sm font-bold text-background hover:bg-foreground/90 sm:mt-8 sm:min-h-16 sm:text-lg"
               >
                 {data.players.length === 2 ? "OYUNU BAŞLAT" : "OYUNCU BEKLEMEDEN BAŞLAT"}
-              </button>
+              </Button>
+              </div>
             </section>
           ) : data.status === "FINISHED" ? (
             <section className="py-6 text-center">
@@ -270,13 +280,13 @@ function TeamSlot({
   connected?: boolean | undefined;
 }) {
   return (
-    <div className="rounded-2xl border-2 border-border px-4 py-3 text-left">
+    <div className="min-w-0 border-2 border-border px-3 py-3 text-left sm:px-6 sm:py-6">
       <p
-        className={`text-xs font-bold tracking-[0.25em] ${team === 1 ? "text-team1" : "text-team2"}`}
+        className={`text-xs font-bold tracking-wider ${team === 1 ? "text-team1" : "text-team2"}`}
       >
         TAKIM {team}
       </p>
-      <p className="mt-1 text-lg font-bold text-foreground">
+      <p className="mt-1 truncate text-xs font-bold text-foreground sm:text-xl">
         {name ? `${connected ? "🟢" : "🔴"} ${name}` : "Oyuncu bekleniyor..."}
       </p>
     </div>
