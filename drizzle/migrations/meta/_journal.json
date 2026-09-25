@@ -1,0 +1,83 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790233614242,
+      "tag": "0000_create_game_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790233623059,
+      "tag": "0001_add_question_sets",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790245958208,
+      "tag": "0002_noop_sync",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1790251513247,
+      "tag": "0003_import_halat_yarisi_schema_v2",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1790311775392,
+      "tag": "0004_import_halat_yarisi_schema",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1790312949133,
+      "tag": "0005_add_question_type",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1790312972658,
+      "tag": "0006_add_text_answer_columns",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1790312981435,
+      "tag": "0007_grant_service_role",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1790322471784,
+      "tag": "0008_20260925072402_create_game_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1790322479670,
+      "tag": "0009_20260925072415_server_only_policies",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1790324283987,
+      "tag": "0010_create_game_tables",
+      "breakpoints": true
+    }
+  ]
+}
