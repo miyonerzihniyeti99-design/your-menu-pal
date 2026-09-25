@@ -132,7 +132,8 @@ function HostScreen() {
           >
             {countdown}
             {waiting && !lobbyOpen ? (
-            <section className="flex min-h-dvh w-full flex-col items-center justify-center px-5 py-8 text-center sm:px-10">
+            <section className="flex min-h-dvh w-full flex-col items-center justify-evenly gap-4 px-5 py-8 text-center sm:px-10">
+              <div className="flex flex-col items-center">
               <p className="text-xs font-semibold tracking-widest text-muted-foreground">
                 2. ADIM — YARIŞMA
               </p>
@@ -143,9 +144,11 @@ function HostScreen() {
                 Sorular hazır. "YARIŞMAYI BAŞLAT" dediğinizde QR kod ve oda kodu ekrana gelir,
                 öğrenciler takımlara katılır.
               </p>
+              </div>
+              <div className="flex w-full flex-col items-center">
               <Button
                 onClick={() => setLobbyOpen(true)}
-                className="mt-10 min-h-14 w-full max-w-sm bg-foreground px-6 text-base font-bold text-background hover:bg-foreground/90 sm:min-h-16 sm:text-lg"
+                className="min-h-14 w-full max-w-sm bg-foreground px-6 text-base font-bold text-background hover:bg-foreground/90 sm:min-h-16 sm:text-lg"
               >
                 YARIŞMAYI BAŞLAT
               </Button>
@@ -156,9 +159,11 @@ function HostScreen() {
               >
                 SORULARA DÖN
               </Button>
+              </div>
             </section>
           ) : waiting ? (
-            <section className="flex min-h-dvh w-full flex-col items-center justify-center px-4 py-5 text-center sm:px-10 sm:py-8">
+            <section className="flex min-h-dvh w-full flex-col items-center justify-between gap-4 px-4 py-6 text-center sm:px-10 sm:py-10">
+              <div className="flex w-full flex-col items-center">
               <p className="text-xs font-semibold tracking-widest text-muted-foreground">
                 ODA KODU
               </p>
@@ -171,7 +176,9 @@ function HostScreen() {
               <p className="mt-3 text-xs font-bold tracking-wider text-foreground sm:text-base">
                 TELEFONUNUZLA QR KODU OKUTUN
               </p>
-              <div className="mt-5 grid w-full max-w-5xl grid-cols-2 gap-2 sm:mt-8 sm:gap-5">
+              </div>
+              <div className="flex w-full flex-col items-center">
+              <div className="grid w-full max-w-5xl grid-cols-2 gap-2 sm:gap-5">
                 <TeamSlot team={1} name={team1?.name} connected={team1?.connected} />
                 <TeamSlot team={2} name={team2?.name} connected={team2?.connected} />
               </div>
@@ -184,6 +191,7 @@ function HostScreen() {
               >
                 {data.players.length === 2 ? "OYUNU BAŞLAT" : "OYUNCU BEKLEMEDEN BAŞLAT"}
               </Button>
+              </div>
             </section>
           ) : data.status === "FINISHED" ? (
             <section className="py-6 text-center">
